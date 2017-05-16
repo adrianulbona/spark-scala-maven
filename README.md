@@ -1,1 +1,1 @@
-# Stub Maven Project with Scala 2.10 and Spark 1.6
+# Stub Maven Project with Scala 2.11 and Spark 2.1
