@@ -10,10 +10,17 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
-        <scala.tools.version>2.10</scala.tools.version>
-        <scala.version>2.10.5</scala.version>
-        <spark.version>1.6.1</spark.version>
+        <spark.version>2.1.1</spark.version>
+        <scala.tools.version>2.11</scala.tools.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.tools.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
@@ -29,29 +36,9 @@
                             <goal>compile</goal>
                             <goal>testCompile</goal>
                         </goals>
-                        <configuration>
-                            <args>
-                                <arg>-make:transitive</arg>
-                                <arg>-dependencyfile</arg>
-                                <arg>${project.build.directory}/.scala_dependencies</arg>
-                            </args>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_${scala.tools.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-    </dependencies>
 </project>
